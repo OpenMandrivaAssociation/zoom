@@ -11,8 +11,9 @@ Source0:        http://www.logicalshift.co.uk/unix/zoom/%{name}-%{version}.tar.g
 Patch0:		zoom-1.1.3-enable-antialiasing.patch
 License:        GPLv2+ 
 Group:          Games/Other
-#BuildRequires:	xorg-x11-devel fontconfig-devel zlib-devel libpng-devel t1lib-devel
-BuildRequires:	libpng-devel t1lib-devel libxorg-x11-devel libxft-devel libxrender1-devel fontconfig-devel zlib-devel
+#BuildRequires:	xorg-x11-devel fontconfig-devel zlib-devel libpng-devel t1lib-devel #from ALT linux
+BuildRequires:  X11-devel libxrender-devel
+BuildRequires:	libpng-devel t1lib-devel libxft-devel fontconfig-devel zlib-devel
 BuildRoot:      %{_tmppath}/%{name}-buildroot
 
 %description
