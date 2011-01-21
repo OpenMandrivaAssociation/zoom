@@ -1,6 +1,6 @@
 %define name	zoom 
 %define version 1.1.4
-%define release %mkrel 1
+%define release %mkrel 2
 
 Name:           %{name}
 Summary:        Z-Machine: it plays text adventure games written in ZCode
@@ -9,11 +9,15 @@ Release:        %{release}
 URL:            http://www.logicalshift.co.uk/unix/zoom/ 
 Source0:        http://www.logicalshift.co.uk/unix/zoom/%{name}-%{version}.tar.gz
 Patch0:		zoom-1.1.3-enable-antialiasing.patch
+Patch1:		zoom-1.1.4-xft.patch
 License:        GPLv2+ 
 Group:          Games/Other
-#BuildRequires:	xorg-x11-devel fontconfig-devel zlib-devel libpng-devel t1lib-devel #from ALT linux
-BuildRequires:  X11-devel libxrender-devel
-BuildRequires:	libpng-devel t1lib-devel libxft-devel fontconfig-devel zlib-devel
+BuildRequires:	libx11-devel
+BuildRequires:	libxext-devel
+BuildRequires:	libxrender-devel
+BuildRequires:	libxft-devel
+BuildRequires:	libpng-devel
+BuildRequires:	t1lib-devel
 BuildRoot:      %{_tmppath}/%{name}-buildroot
 
 %description
@@ -26,14 +30,16 @@ It has a fast interpreter core behind an X11 interface.
 %prep
 %setup -q
 %patch0 -p0
+%patch1 -p0 -b .xft
 
 %build
-%configure --bindir=%{_gamesbindir} --datadir=%{_gamesdatadir}
+autoreconf -fi -Im4
+%configure2_5x --bindir=%{_gamesbindir} --datadir=%{_gamesdatadir}
 %make
 
 %install
 rm -rf %{buildroot}
-%makeinstall bindir=%{buildroot}%{_gamesbindir} datadir=%{buildroot}%{_gamesdatadir}
+%makeinstall_std
 mkdir %{buildroot}%{_gamesdatadir}/%{name}/games
 
 %clean
