@@ -1,0 +1,39 @@
+--- configure.in.xft	2009-06-02 08:56:17.000000000 +0200
++++ configure.in	2011-01-21 11:54:59.000000000 +0100
+@@ -356,16 +356,7 @@
+       
+     # If Xft is installed, then there will be a xft-config file on the current path
+     AC_MSG_CHECKING([for xft-config])
+-    XFTCONFIG=`which xft-config`
+-    XFT_CFLAGS=""
+-    XFT_LIBS=""
+-    if test -x ${XFTCONFIG}; then
+-    	AC_MSG_RESULT([$XFTCONFIG])
+-    	XFT_CFLAGS=`${XFTCONFIG} --cflags`
+-    	XFT_LIBS=`${XFTCONFIG} --libs`
+-    else
+-    	AC_MSG_RESULT(no)
+-    fi
++    PKG_CHECK_MODULES([XFT], [xft],, [AC_MSG_RESULT(no)])
+ 
+     # Had to move this, Xft 2 again
+     AC_CHECK_LIB(Xrender, XRenderQueryExtension,
+@@ -387,10 +378,6 @@
+ 	])
+     fi
+ 
+-    # Xft 2 requires that we link to fontconfig, too
+-    # Grr, I thought dependency hell was supposed to be a Windows thing.
+-    AC_CHECK_LIB(fontconfig, FcPatternAddInteger)
+-
+     AC_CHECK_LIB(Xft, XftInit,
+       [
+         LIBS="$LIBS $XFT_LIBS"
+@@ -411,7 +398,6 @@
+ 	])
+     fi
+ 
+-    AC_CHECK_LIB(z, inflate, [ LIBS="$LIBS -lz" ])
+     AC_CHECK_LIB(png, png_get_IHDR,
+       [
+ 	AC_DEFINE(HAVE_LIBPNG)
