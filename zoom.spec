@@ -48,3 +48,25 @@ autoreconf -fi -Im4
 %dir %{_gamesdatadir}/%{name}
 %{_gamesdatadir}/%{name}/%{name}rc
 %dir %{_gamesdatadir}/%{name}/games
+
+
+%changelog
+* Fri Mar 30 2012 Andrey Bondrov <abondrov@mandriva.org> 1.1.5-1mdv2011.0
++ Revision: 788381
+- New version 1.1.5, spec cleanup, update BR
+
+* Fri Jan 21 2011 Funda Wang <fwang@mandriva.org> 1.1.4-2
++ Revision: 631999
+- check libxft via pkgconfig
+- drop unused lib check
+
+* Tue Jun 02 2009 Samuel Verschelde <stormi@mandriva.org> 1.1.4-1mdv2010.0
++ Revision: 382278
+- update to new version 1.1.4
+
+* Fri May 22 2009 Samuel Verschelde <stormi@mandriva.org> 1.1.3-1mdv2010.0
++ Revision: 378684
+- fix buildrequires
+- import zoom
+
+
