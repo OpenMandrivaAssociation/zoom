@@ -8,6 +8,7 @@ URL:		http://www.logicalshift.co.uk/unix/zoom/
 Source0:	http://www.logicalshift.co.uk/unix/zoom/%{name}-%{version}.tar.gz
 Patch0:		zoom-1.1.3-enable-antialiasing.patch
 Patch1:		zoom-1.1.4-xft.patch
+Patch2:		zoom-1.1.5-automake1.13.patch
 BuildRequires:	X11-devel
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xrender) >= 0.9.6
@@ -26,6 +27,7 @@ It has a fast interpreter core behind an X11 interface.
 %setup -q
 %patch0 -p0
 %patch1 -p0 -b .xft
+%patch2 -p0 -b .autoconf113
 
 %build
 autoreconf -fi -Im4

@@ -1,0 +1,11 @@
+--- configure.in.orig	2013-02-18 11:28:03.024733414 +0000
++++ configure.in	2013-02-18 11:28:15.249733909 +0000
+@@ -10,7 +10,7 @@
+ 
+ UTIL_DISPLAY_SECTION(automake)
+ AM_INIT_AUTOMAKE($PACKAGE, $VERSION)
+-AM_CONFIG_HEADER(config.h)
++AC_CONFIG_HEADERS(config.h)
+ 
+ UTIL_DISPLAY_SECTION(compilers)
+ AC_PROG_CC
