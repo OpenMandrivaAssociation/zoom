@@ -1,0 +1,11 @@
+--- zoom-1.1.5/src/tokenise.c.orig	2017-11-25 19:39:36.077243373 +0000
++++ zoom-1.1.5/src/tokenise.c	2017-11-25 19:39:40.196103553 +0000
+@@ -154,7 +154,7 @@
+ 
+ int cache = 1;
+ 
+-inline ZUWord lookup_word(unsigned int*  word,
++static inline ZUWord lookup_word(unsigned int*  word,
+ 			  int            wordlen,
+ 			  ZUWord         dct)
+ {

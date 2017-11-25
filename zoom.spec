@@ -1,6 +1,8 @@
+%define _disable_lto 1
+
 Name:		zoom
 Version:	1.1.5
-Release:	2
+Release:	3
 Summary:	Z-Machine: it plays text adventure games written in ZCode
 Group:		Games/Other
 License:	GPLv2+
@@ -9,7 +11,8 @@ Source0:	http://www.logicalshift.co.uk/unix/zoom/%{name}-%{version}.tar.gz
 Patch0:		zoom-1.1.3-enable-antialiasing.patch
 Patch1:		zoom-1.1.4-xft.patch
 Patch2:		zoom-1.1.5-automake1.13.patch
-BuildRequires:	X11-devel
+Patch3:		zoom-1.1.5-clang.patch
+BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xrender) >= 0.9.6
 BuildRequires:	pkgconfig(xft)
@@ -28,6 +31,7 @@ It has a fast interpreter core behind an X11 interface.
 %patch0 -p0
 %patch1 -p0 -b .xft
 %patch2 -p0 -b .autoconf113
+%patch3 -p1
 
 %build
 autoreconf -fi -Im4
