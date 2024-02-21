@@ -9,3 +9,14 @@
  			  int            wordlen,
  			  ZUWord         dct)
  {
+--- zoom-1.1.5/src/interp.c.orig	2024-02-21 23:52:06.046908309 +0000
++++ zoom-1.1.5/src/interp.c	2024-02-21 23:52:14.391637712 +0000
+@@ -232,7 +232,7 @@
+   return newframe;
+ }
+ 
+-inline void store(ZStack* stack, int var, ZWord value)
++static inline void store(ZStack* stack, int var, ZWord value)
+ {
+ #ifdef DEBUG
+   printf_debug("Storing %i in Variable #%x\n", value, var);

@@ -2,7 +2,7 @@
 
 Name:		zoom
 Version:	1.1.5
-Release:	3
+Release:	4
 Summary:	Z-Machine: it plays text adventure games written in ZCode
 Group:		Games/Other
 License:	GPLv2+
