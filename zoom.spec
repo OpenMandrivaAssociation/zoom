@@ -6,7 +6,7 @@ Release:	4
 Summary:	Z-Machine: it plays text adventure games written in ZCode
 Group:		Games/Other
 License:	GPLv2+
-URL:		http://www.logicalshift.co.uk/unix/zoom/
+URL:		https://www.logicalshift.co.uk/unix/zoom/
 Source0:	http://www.logicalshift.co.uk/unix/zoom/%{name}-%{version}.tar.gz
 Patch0:		zoom-1.1.3-enable-antialiasing.patch
 Patch1:		zoom-1.1.4-xft.patch
