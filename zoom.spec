@@ -12,6 +12,11 @@ Patch0:		zoom-1.1.3-enable-antialiasing.patch
 Patch1:		zoom-1.1.4-xft.patch
 Patch2:		zoom-1.1.5-automake1.13.patch
 Patch3:		zoom-1.1.5-clang.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xrender) >= 0.9.6
